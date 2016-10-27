@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        
+        <h:form>
+            
+        #{msg.gender}        <h:inputText value="#{peopleListBean.gender}" required="Yes" /><br></br>            <!--Ajouter le champ au Bean (stocker)-->
+        #{msg.firstname}        <h:inputText value="#{peopleListBean.firstname}" required="Yes" /><br></br>
+        #{msg.lastname}        <h:inputText value="#{peopleListBean.lastname}" required="Yes" /><br></br>
+        #{msg.married}        <h:inputText value="#{peopleListBean.married}" required="Yes" /><br></br>
+        #{msg.birthDate}        <h:inputText value="#{peopleListBean.birthDate}" required="Yes"><f:convertDateTime pattern="dd.mm.yyyy"/></h:inputText><br></br>
+        <br></br>        
+        <h:commandButton action="#{peopleListBean.addPerson()}" value="Ajouter la personne"/>                                      <!--Lancer la fonction d'ajout-->
+        <h:button outcome="index.xhtml" value="Annuler" />
+        
+        </h:form>
+    </h:body>
+</html>
+
