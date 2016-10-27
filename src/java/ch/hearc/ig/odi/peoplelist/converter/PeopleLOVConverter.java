@@ -23,9 +23,7 @@ import javax.inject.Inject;
 public class PeopleLOVConverter implements Converter {
 
     @Inject Services service;
-    /**
-     * Creates a new instance of PeopleLOVConverter
-     */
+    
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
         if(value==null) {
