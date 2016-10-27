@@ -5,8 +5,14 @@
  */
 package ch.hearc.ig.odi.peoplelist.converter;
 
+import ch.hearc.ig.odi.peoplelist.business.Person;
+import ch.hearc.ig.odi.peoplelist.services.Services;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
+import javax.inject.Inject;
 
 /**
  *
@@ -14,11 +20,32 @@ import javax.enterprise.context.RequestScoped;
  */
 @Named(value = "peopleLOVConverter")
 @RequestScoped
-public class PeopleLOVConverter {
+public class PeopleLOVConverter implements Converter {
 
+    @Inject Services service;
     /**
      * Creates a new instance of PeopleLOVConverter
      */
+    @Override
+    public Object getAsObject(FacesContext context, UIComponent component, String value) {
+        if(value==null) {
+            return null;
+        }else{
+            return service.getPerson(new Long(value));
+        }
+    }
+    
+    @Override
+    public String getAsString(FacesContext context, UIComponent component, Object value) {
+        if(value == null){
+            return null;
+        }else if(value instanceof Person){
+            return ((Person)value).getId().toString();
+        }else{
+            return "";
+        }  
+}
+    
     public PeopleLOVConverter() {
     }
     
