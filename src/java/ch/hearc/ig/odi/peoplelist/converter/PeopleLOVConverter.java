@@ -44,7 +44,4 @@ public class PeopleLOVConverter implements Converter {
         }  
 }
     
-    public PeopleLOVConverter() {
-    }
-    
 }
